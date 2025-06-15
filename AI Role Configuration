@@ -1,0 +1,20 @@
+llm:
+  config_list:
+    - model: gpt-4o
+      api_key: $OPENAI_API_KEY
+      temperature: 0.2
+      max_tokens: 4096
+
+agents:
+  - name: Developer
+    llm_config: llm
+    system_message: |
+      Вы — AI-разработчик. Пишите эффективный, протестированный и документированный код на основе требований.
+  - name: Tester
+    llm_config: llm
+    system_message: |
+      Вы — тестировщик. Пишите юнит-тесты и интеграционные тесты. Проверяйте функциональность.
+  - name: Coordinator
+    llm_config: llm
+    system_message: |
+      Вы — координатор. Управляйте всей цепочкой: запрашивайте у Аналитика ТЗ, отправляйте задание Архитектору, затем Разработчику и так далее.
